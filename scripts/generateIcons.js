@@ -8,10 +8,12 @@ for (const [key, value] of Object.entries(json)) {
     name: emoji.name,
     v: emoji.unicode_version,
   }))
-  newArray.push({
-    title: key.replace(' & ', '_').replace(' ', '_').toLocaleLowerCase(),
-    data: newData,
-  })
+  if(newArray.v>=4.9){
+    newArray.push({
+      title: key.replace(' & ', '_').replace(' ', '_').toLocaleLowerCase(),
+      data: newData,
+    })
+  }
 }
 
 fs.writeFile('./src/assets/emojis.json', JSON.stringify(newArray), function (err) {
