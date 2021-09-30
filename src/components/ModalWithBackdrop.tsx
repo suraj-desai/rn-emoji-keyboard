@@ -39,7 +39,7 @@ export const ModalWithBackdrop = ({ isOpen, backdropPress, children }: ModalWith
   }
 
   return (
-    <Modal visible={isOpen} animationType="fade" transparent={true}>
+    <Modal visible={isOpen} animationType="fade" transparent={true} onRequestClose={() => handleClose()}>
       <TouchableOpacity style={styles.modalContainer} activeOpacity={1} onPress={handleClose}>
         <View style={[styles.modalContainer, { backgroundColor: backdropColor }]}>
           <SafeAreaView style={styles.modalContainer}>
